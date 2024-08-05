@@ -142,11 +142,14 @@ $$T_{STOP} - T_{START} = \text{LC週期時間}\times{65536}\left(usec\right)$$
 
 帶入以下公式。
 - $`formula (a)`$：
+  
   $$C=\frac{C_{cal}}{\frac{f_{1}^{2}}{f_{2}^{2}}-1}\Rightarrow C=\frac{C_{cal}}{\frac{t_{2}^{2}}{t_{1}^{2}}-1}$$
 - $`formula (b)`$：
+
   $$C_{x}=\left(\frac{f_{1}^{2}}{f_{2}^{2}}-1\right)C\Rightarrow C_{x}=\left({\frac{t_{2}^{2}}{t_{1}^{2}}-1}\right)C$$
 - $`formula (c)`$：
-$$L_{x}=\left( \frac{1}{f_{2}^{2}}-\frac{1}{f_{1}^{2}} \right)\frac{1}{C\left( 2\pi \right)^{2}}$$
+
+  $$L_{x}=\left( \frac{1}{f_{2}^{2}}-\frac{1}{f_{1}^{2}} \right)\frac{1}{C\left( 2\pi \right)^{2}}$$
 $$\Rightarrow L_{x}=\left({t_{2}^{2}}-{t_{1}^{2}} \right)\frac{1}{C\left( 2\pi \right)^{2}}$$
 
 #### **技巧**：
@@ -156,18 +159,23 @@ $$\Rightarrow L_{x}=\left({t_{2}^{2}}-{t_{1}^{2}} \right)\frac{1}{C\left( 2\pi \
 
 帶入$`formula (a)(b)(c)`$，並化簡。
 - $`formula (a)`$ 改寫為 $`formula (a1)`$
+
   $$C=\frac{C_{cal}}{\frac{T_{2}^{2}}{T_{1}^{2}}-1}$$
 - $`formula (b)`$ 改寫為 $`formula (b1)`$
+
   $$C_{x}=\left({\frac{T_{2}^{2}}{T_{1}^{2}}-1}\right)C$$
 - $`formula (c)`$ 改寫為 $`formula (c1)`$
+
   $$L_{x}=\left({T_{2}^{2}}-{T_{1}^{2}} \right)\frac{1}{C\left(65536\times {2\pi}\right)^{2}}$$
   
 #### **浮點運算**：
 由於二進制浮點數(float)不能表達所有的實數，只能表示最接近的可表達數。浮點數及運算可能存在誤差，但這些誤差量必定趨於最小。例如：將某一存在誤差的二進制浮點數轉為十進制，其誤差部分必定在於十進制數的最右邊。
 所以；$`formula (a1)`$與$`formula (b1)`$必須再改寫，期使減少浮點運算的誤差。
 - $`formula (a1)`$改寫為$`formula (a2)`$
+
   $$C=\frac{C_{cal}}{\frac{T_{2}^{2}}{T_{1}^{2}}-1}\Rightarrow C=\frac{C_{cal}}{\frac{T_{2}^{2}-T_{1}^{2}}{T_{1}^{2}}}$$
 - $`formula (b1)`$改寫為$`formula (b2)`$
+
   $$C_{x}=\left({\frac{T_{2}^{2}}{T_{1}^{2}}-1}\right)C\Rightarrow C_{x}=\left({\frac{T_{2}^{2}-T_{1}^{2}}{T_{1}^{2}}}\right)C$$
   
 #### **常數**：
@@ -175,6 +183,7 @@ $`formula (c1)`$的尾部是一段常數。這常數可預先計算帶入算式�
 設常數為$`ARG3`$
 $$ARG3=\frac{10^{-6}}{\left(65536\times 2\pi\right)^{2}}\approx 5.898\times 10^{-18}$$
 - $`formula (c1)`$改寫為$`formula (c2)`$
+
   $$L_{x}=\left(T_{2}^{2}-T_{1}^{2} \right)\times\frac{ARG3}{C}$$
   
 #### **減少Mcu運算**：
@@ -184,10 +193,13 @@ $`formula (a2)`$、$`(b2)`$ 與 $`(c2)`$ 中的 $`T1`$、$`ARG3`$與$`C`$，均�
   - $`ARG2=\frac{ARG3}{C}`$
   - $`ARG3=5.898\times{10^{-18}}`$
 - $`formula (a2)`$改寫為$`formula (a3)`$
+
   $$C=\frac{C_{cal}}{\frac{T_{2}^{2}-ARG1}{ARG1}}$$
 - $`formula (b2)`$改寫為$`formula (b3)`$
+
   $$C_{x}=\left({\frac{T_{2}^{2}-ARG1}{ARG1}}\right)C$$
 - $`formula (c2)`$改寫為$`formula (c3)`$
+
   $$L_{x}=\left(T_{2}^{2}-ARG1 \right)\times{ARG2}$$
 
 ## 使用說明
