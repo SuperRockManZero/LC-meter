@@ -1,5 +1,5 @@
 # 電感電容測量表
-![LC meter](https://github.com/SuperRockManZero/LC-meter/blob/main/Photo/LC_meter_B5_p10.jpg)
+![LC meter](Photo/LC_meter_B5_p10.jpg)
 此專案使用 PIC16F648A 微處理器製作一個電感電容測量表。依據 LC 諧振原理，並使用已知的參考電容計算出待測量的電感或電容數值。
 
 ## 專案介紹
@@ -19,7 +19,7 @@
 誤差值$`\pm1\%`$是取決於電路上一顆作為校準用電容的精密度，另外在程式計算過程中包含了浮點運算誤差，實際誤差將會稍大於$`\pm1\%`$。
 
 ## 原理說明
-![精密電容](https://github.com/SuperRockManZero/LC-meter/blob/main/Photo/P_20160116_233028_HDR.jpg)
+![精密電容](Photo/P_20160116_233028_HDR.jpg)
 
 #### *LC 諧振電路*：
 LC 諧振電路由電感$`(L)`$和電容$`(C)`$組成，當電路處於諧振狀態時，電路的諧振頻率率$`(f)`$可以通過以下公式計算：
@@ -29,7 +29,7 @@ $$f = \frac{1}{2\pi\sqrt{LC}}$$
 #### *校準*：
 因為實體電路存在許多未知的雜散電容與電感，這將會造成量測上的誤差。使用一高精密度電容作為校準雜散電容與電感造成的誤差因素。$`C_{cal}`$為校準用的精密電容，設$`C_{3}`$與雜散電容總合為$`C`$，$`L_{1}`$與雜散電感總合為$`L`$。
 
-![LC osc schematic](https://github.com/SuperRockManZero/LC-meter/blob/main/Photo/LC_Oscillator_2-Schematic.jpg)
+![LC osc schematic](Photo/LC_Oscillator_2-Schematic.jpg)
 *圖一：LC諧振電路*
 
 當 $`SW`$ 斷開時，其諧振頻率為 $`f_{1}`$：
@@ -55,7 +55,7 @@ $$C=\frac{C_{cal}}{\frac{f_{1}^{2}}{f_{2}^{2}}-1}$$
 #### *量測電容*：
 被測量的電容為$`C_{x}`$，在電路上與 $`C`$ 並聯。($`C`$是$`C_{3}`$與雜散電容並聯後的等效電容)
 
-![測量電容](https://github.com/SuperRockManZero/LC-meter/blob/main/Photo/LC_Oscillator_3a-Schematic.jpg)
+![測量電容](Photo/LC_Oscillator_3a-Schematic.jpg)
 *圖二：量測電容*
 
 代入諧振公式，求其諧振頻率為$`f_{2}`$：
@@ -75,7 +75,7 @@ $$\Rightarrow C_{x}=C\left(\frac{f_{1}^{2}}{f_{2}^{2}}-1 \right)$$
 #### *量測電感*：
 被測量的電感為$`L_{x}`$，在電路上與$`L`$串聯。($`L`$是$`L_{1}`$與雜散電感的串聯後的等效電感)
 
-![量測電感](https://github.com/SuperRockManZero/LC-meter/blob/main/Photo/LC_Oscillator_3b-Schematic.jpg)
+![量測電感](Photo/LC_Oscillator_3b-Schematic.jpg)
 *圖三：量測電感*
 
 代入諧振公式求其諧振頻率為$`f_{2}`$：
@@ -114,7 +114,7 @@ $$\Rightarrow L_{x}=\left( \frac{f_{1}^2}{f_{2}^2}-1 \right)L$$
 - 9V電源及5V穩壓電路
 
 ## 電路圖
-![LC meter schematic](https://github.com/SuperRockManZero/LC-meter/blob/main/Photo/LC_Meter_ver_B2.jpg)
+![LC meter schematic](Photo/LC_Meter_ver_B2.jpg)
 
 - 校準電容：$`C5`$為$`\pm 1\%`$精密電容用於電路校準。
 - Mcu：PIC16F648A，以其內建的比較器做為諧振電路。
@@ -130,7 +130,7 @@ $$f=\frac{T}{t}$$
 - **計數**：使用Mcu內建 TIMER0 (8bits) 作為計數LC諧振周期，將預分頻器(Prescaler)設為1：256。所以最多可計數：$`2^{8}\times2^{8}=65536`$
 - **計時**： 使用Mcu內建 TIMER1 (16bits) 作為計時器，預分頻器(Prescaler)設為1：1，並且設一8bits的變數作為計數 TIMER1 溢位次數。TIMER1的時鐘速度為 4MHz / 4，故；可計時的最長時間為：$`2^{16}\times2^{8}\times\frac{4}{4MHz}=16.777216sec`$(實際上只需用到約4.2sec)
 - **TIMER0 與 TIMER1**：如下圖。
-![Timer0與Timer1](https://github.com/SuperRockManZero/LC-meter/blob/main/Photo/timing3.jpg)
+![Timer0與Timer1](Photo/timing3.jpg)
 $$T_{STOP} - T_{START} = \text{LC週期時間}\times{65536}\left(usec\right)$$
 
 #### **改寫諧振公式**：
@@ -205,7 +205,7 @@ $`formula (a2)`$、$`(b2)`$ 與 $`(c2)`$ 中的 $`T1`$、$`ARG3`$與$`C`$，均�
 ## 使用說明
 
 1. **燒錄程序**：
-   - 使用 PIC 燒寫器將 [hex file](https://github.com/SuperRockManZero/LC-meter/blob/main/Hex/LC_Meter_ver_B5.production.hex) 燒錄到 PIC16F648A 微處理器。
+   - 使用 PIC 燒寫器將 [hex file](Hex/LC_Meter_ver_B5.production.hex) 燒錄到 PIC16F648A 微處理器。
 
 2. **操作步驟**：
    - 打開電源，啟動測量表。
