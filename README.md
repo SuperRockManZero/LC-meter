@@ -44,11 +44,11 @@ $$f_{2} = \frac{1}{2\pi\sqrt{L(C+C_{cal})}}$$
 
 $$\frac{f_{1}}{f_{2}}=\frac{\frac{1}{2\pi\sqrt{LC}}}{\frac{1}{2\pi\sqrt{L\left( C+C_{cal} \right)}}}=\frac{\sqrt{L\left( C+C_{cal} \right)}}{\sqrt{LC}}$$
 
-$$\Rightarrow \frac{f_{1}^{2}}{f_{2}^{2}}=1+\frac{C_{cal}}{C}$$
+$$\Rightarrow \frac{{f_{1}}^{2}}{{f_{2}}^{2}}=1+\frac{C_{cal}}{C}$$
 
 由上式可得知：$`C_{3}`$與雜散電容總合$`C`$：
 
-$$C=\frac{C_{cal}}{\frac{f_{1}^{2}}{f_{2}^{2}}-1}$$
+$$C=\frac{C_{cal}}{\frac{{f_{1}}^{2}}{{f_{2}}^{2}}-1}$$
 
 且電感$`L`$的數值與公式無關。
 
@@ -68,7 +68,7 @@ $$f_{2}=\frac{1}{2\pi\sqrt{L\left( C+C_{x} \right)}}$$
 
 $$\frac{f_{1}}{f_{2}}=1+\frac{C_{x}}{C}$$
 
-$$\Rightarrow C_{x}=C\left(\frac{f_{1}^{2}}{f_{2}^{2}}-1 \right)$$
+$$\Rightarrow C_{x}=C\left(\frac{{f_{1}}^{2}}{{f_{2}}^{2}}-1\right)$$
 
 同樣的在公式與$`L`$無關，且在先前的校準後已得知 $`f_{1}`$與$`C`$。經公式計算後可求得被測量的電容$`C_{x}`$。
 
@@ -94,14 +94,14 @@ $$L=\frac{1}{C\left(2\pi f_{1} \right)^{2}}$$
 
 $$\frac{1}{C\left(2\pi f_{1} \right)^{2}}+L_{x}=\frac{1}{C\left( 2\pi f_{2}\right)^{2}}$$
 
-$$\Rightarrow L_{x}=\left( \frac{1}{f_{2}^{2}}-\frac{1}{f_{1}^{2}} \right)\frac{1}{C\left( 2\pi \right)^{2}}$$
+$$\Rightarrow L_{x}=\left( \frac{1}{{f_{2}}^{2}}-\frac{1}{{f_{1}}^{2}} \right)\times \frac{1}{C\left( 2\pi \right)^{2}}$$
 
 同樣的在公式與$`L`$無關，且在先前的校準後已得知$`f_{1}`$與$`C`$。經公式計算後可求得被測量的電感$`L_{x}`$。
 另外相同於測量電容的方法，也可以解出測量電感的公式：
 
-$$\frac{f_{1}^2}{f_{2}^2}=1+\frac{L_{x}}{L}$$
+$$\frac{{f_{1}}^2}{{f_{2}}^2}=1+\frac{L_{x}}{L}$$
 
-$$\Rightarrow L_{x}=\left( \frac{f_{1}^2}{f_{2}^2}-1 \right)L$$
+$$\Rightarrow L_{x}=\left( \frac{{f_{1}}^2}{{f_{2}}^2}-1 \right)L$$
 
 唯；這樣的公式與$`L`$有關，所以不採用此公式。
 
