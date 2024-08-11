@@ -143,7 +143,7 @@ $$T_{STOP} - T_{START} = \text{LC週期時間}\times{65536}\left(usec\right)$$
 帶入以下公式。
 - $`formula (a)`$：
   
-  $$C=\frac{C_{cal}}{\frac{f_{1}^{2}}{f_{2}^{2}}-1}\Rightarrow C=\frac{C_{cal}}{\frac{t_{2}^{2}}{t_{1}^{2}}-1}$$
+  $$C=\frac{C_{cal}}{\frac{{f_{1}}^{2}}{{f_{2}}^{2}}-1}\Rightarrow C=\frac{C_{cal}}{\frac{t_{2}^{2}}{t_{1}^{2}}-1}$$
 - $`formula (b)`$：
 
   $$C_{x}=\left(\frac{f_{1}^{2}}{f_{2}^{2}}-1\right)C\Rightarrow C_{x}=\left({\frac{t_{2}^{2}}{t_{1}^{2}}-1}\right)C$$
